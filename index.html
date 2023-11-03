@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Question and Answer</title>
+</head>
+<body style="text-align: center; background-color: #f8f8f8; font-family: 'Comic Sans MS', cursive, sans-serif;">
+
+<h2 style="color: #ff69b4;">Question:</h2>
+<p id="question" style="font-size: 24px; color: #333; margin-bottom: 20px;">What is my favorite food at Lugas?</p>
+
+<input type="text" id="answerInput" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 20px;">
+<button onclick="checkAnswer()" style="background-color: #ff69b4; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+
+<p id="result" style="font-size: 18px; color: #ff69b4; margin-top: 20px;"></p>
+
+<div id="additionalQuestion" style="display: none; margin-top: 20px;">
+    <p style="font-size: 24px; color: #333;">Additional Question:</p>
+    <p style="font-size: 18px; color: #333; margin-bottom: 20px;">What is the last word of the fifth line of the third song in the playlist "From Leesa"</p>
+    <input type="text" id="additionalAnswerInput" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 20px;">
+    <button onclick="checkAdditionalAnswer()" style="background-color: #ff69b4; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    <p id="additionalResult" style="font-size: 18px; color: #ff69b4; margin-top: 20px;"></p>
+</div>
+
+<script>
+function checkAnswer() {
+  var userAnswer = document.getElementById('answerInput').value.toLowerCase();
+  var correctAnswer = 'quesadilla burger';
+  var resultElement = document.getElementById('result');
+  var additionalQuestionDiv = document.getElementById('additionalQuestion');
+
+  if (userAnswer === correctAnswer) {
+    resultElement.textContent = 'Correct! I love you.';
+    additionalQuestionDiv.style.display = 'block';
+  } else {
+    resultElement.textContent = 'Incorrect answer. Please try again.';
+    additionalQuestionDiv.style.display = 'none';
+  }
+}
+
+function checkAdditionalAnswer() {
+  var additionalUserAnswer = document.getElementById('additionalAnswerInput').value.toLowerCase();
+  var correctAdditionalAnswer = 'kids'; // Change this to the actual last word
+
+  if (additionalUserAnswer === correctAdditionalAnswer) {
+    document.getElementById('additionalResult').textContent = 'Correct! Next: Send to me the letter from you I said was my favorite';
+  } else {
+    document.getElementById('additionalResult').textContent = 'Incorrect answer. Please try again.';
+  }
+}
+</script>
+
+</body>
+</html>
